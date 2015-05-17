@@ -6,6 +6,12 @@ import sys
 counter = 0
 
 
+def get_device():
+    if len(sys.argv) > 1:
+        return int(sys.argv[1])
+    return 0
+
+
 def get_output_dir():
     out = os.path.join(os.path.expanduser("~"), 'pystop')
     if not os.path.exists(out):
@@ -25,12 +31,13 @@ def get_next_image_filename(outdir):
 
 
 def main():
+    device = get_device()
     outdir = get_output_dir()
     last_img = None
     pygame.camera.init()
     cameras = pygame.camera.list_cameras()
     print cameras
-    webcam = pygame.camera.Camera()
+    webcam = pygame.camera.Camera(device=device)
     webcam.start()
     img = webcam.get_image()
     width = img.get_width()

@@ -39,6 +39,6 @@ Still images are stored in your user directory under `pystop`.
 
 To generate a video from the stills, use ffmpeg. In the images directory:
 
-    ffmpeg -i %04d.jpg -loglevel debug video_file_name
+    ffmpeg -framerate 15 -i %04d.jpg -loglevel debug video_file_name
 
 
