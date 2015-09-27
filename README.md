@@ -30,7 +30,10 @@ Operation
 
 Run pystop.py
 
-Pick video source?
+If you have more than one video source, pass a different number on the command 
+line until the right one appears. For example:
+
+    pystop.py 2
 
 A single window shows the video source. Push the spacebar to take a frame. 
 Onion skinning is supported from the previous frame.
@@ -41,4 +44,23 @@ To generate a video from the stills, use ffmpeg. In the images directory:
 
     ffmpeg -framerate 15 -i %04d.jpg -loglevel debug video_file_name
 
+Windows Build
+-------------
 
+1. Install [pywin32](http://sourceforge.net/projects/pywin32/files/pywin32/)
+2. Install pyinstaller with pip
+3. Run build.cmd
+
+This will produce pystop.exe.
+
+To Do
+-----
+
+* Sound effect when a frame is captured
+* More easily pick a video source
+* Generate the video with Save As dialog
+* Graceful error if there aren't any capture devices
+* Option to clear the image directory (start over)
+* Program icon
+* Version info resource
+* License
